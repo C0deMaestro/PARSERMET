@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<meta name="referrer" content="unsafe-url">
+
+
+
+<title>Слишком много запросов</title>
+
+<link rel="shortcut icon" href="https://cdn.23met.ru/favicon.ico" type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://cdn.23met.ru/favicon16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://cdn.23met.ru/favicon32.png">
+<link rel="icon" href="https://cdn.23met.ru/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="https://cdn.23met.ru/apple-touch-icon-180.png">
+
+<style>
+body{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 86%;}
+.logo{text-decoration: none; font-size: 130%; font-weight: bold; color: #fff; font-family: Arial, Helvetica, sans-serif; margin-left: 0;}
+.button{ display:inline-block; color:#ffffff; background:#2274DC; border:1px solid #2274DC; cursor: pointer; padding: 3px 7px; line-height: 19px; text-align: center; border-radius: 2px; -webkit-appearance: none; -moz-appearance: none;}
+.button:hover{background: #1b61b9; border-color: #1b61b9; }
+.button:focus{outline: none;}
+
+.grecaptcha-badge { visibility: hidden; }
+</style>
+
+<script type="text/javascript" src="https://cdn.23met.ru/js/js60.js"></script>
+</head>
+<body>
+
+<table><tr><td>
+
+	<div style="height:47px;"></div>
+
+	С вашего адреса поступает большое количество подозрительных запросов.<br />
+	Чтобы продолжить &mdash; подтвердите, что вы не робот.
+
+	<div style="height:27px;"></div>
+
+
+
+	<script src="https://www.google.com/recaptcha/api.js?render=6Lc0lTUiAAAAAAUAxB6tzZmYHR7GgfhGlD1XLUpB"></script>
+	<script>
+	var grec;
+	grecaptcha.ready(() => {
+		grec = grecaptcha.render('recaptcha-el', {
+		   'sitekey' : '6Lcoxf4SAAAAAH8pKsUrGKvPKW6TtfSnFefcPUIi'
+		});
+	});
+	</script>
+	
+	<script>
+	function onSubmit() {
+		grecaptcha.ready(() => {
+			grecaptcha.execute('6Lc0lTUiAAAAAAUAxB6tzZmYHR7GgfhGlD1XLUpB', {}).then((token) => {
+				$.post("https://23met.ru/captcha", {ajax:'verify', 't2':grecaptcha.getResponse(grec), 't3':token},
+					function(data){
+						
+						location.reload()
+					}
+				);
+			});
+		});
+	}
+	</script>
+
+	<div id="recaptcha-el" class="g-recaptcha" data-sitekey="6Lcoxf4SAAAAAH8pKsUrGKvPKW6TtfSnFefcPUIi"></div>
+	<div style="height:7px;"></div>
+	<input type="button" value="Отправить" class="button" onclick="onSubmit()" />
+
+
+
+
+	<div style="height:47px;"></div>
+	<span class="logo"><span style="color: #096;">23</span><span style="color:#0063DC;">МЕТ</span></span>
+	<div style="height:7px;"></div>
+	<a href="tel:+74955855179" style="text-decoration:none; color:#000;">+7(495) 585-51-79</a>
+	<div style="height:7px;"></div>
+	<a href="mailto:23met@23met.ru" style="text-decoration:none; color:#000;">23met@23met.ru</a>	
+
+</td></tr></table>
+
+</body>
+</html>
+
