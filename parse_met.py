@@ -27,16 +27,3 @@ def met_get_info(link):
 
 
 met_get_info('https://23met.ru')
-    # cities.click()
-
-    # driver.implicitly_wait(30)  # задержка
-    # cities = driver.find_element(By.CLASS_NAME, "citychooser_opener citychooser_opener-for-responsive citychooser_opener_blue")
-    # print(cities)
-
-    #print(cities)
-    # найти все чекбоксы и нажать их
-    # checkboxes = cities.find_elements("input[type='checkbox']")
-    # for checkbox in checkboxes:
-    #     checkbox.click()
-    # закрыть браузер
-    #driver.quit()
